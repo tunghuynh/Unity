@@ -35,7 +35,9 @@ public class BirdMovement : MonoBehaviour {
 	public bool dead;
  
 	void OnCollisionEnter2D(Collision2D collision) {
-		_animator.SetTrigger("Death");
-		dead = true;
+		if (collision.gameObject.tag=="floor" || collision.gameObject.tag=="Pipe" || collision.gameObject.tag=="BGLooper"){
+			_animator.SetTrigger("Death");
+			dead = true;
+		}
     }
 }
